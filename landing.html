@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pankaj Kumar | Creative Developer</title>
+  <style>
+    :root {
+      --ink: #f5f3ea;
+      --muted: rgba(245, 243, 234, .58);
+      --yellow: #e9cc32;
+      --night: #17181b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      overflow: hidden;
+      color: var(--ink);
+      font-family: Inter, Arial, sans-serif;
+      background:
+        radial-gradient(circle at 50% 42%, rgba(233, 204, 50, .09), transparent 34%),
+        linear-gradient(135deg, #1d1e21 0%, var(--night) 62%, #121316 100%);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .16;
+      background-image:
+        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: radial-gradient(circle, transparent 0, #000 82%);
+    }
+
+    .glow {
+      position: fixed;
+      width: 52vw;
+      height: 52vw;
+      left: 50%;
+      top: 46%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      border: 1px solid rgba(233, 204, 50, .07);
+      box-shadow:
+        0 0 90px rgba(233, 204, 50, .025),
+        inset 0 0 90px rgba(233, 204, 50, .025);
+      pointer-events: none;
+    }
+
+    main {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      min-height: 500px;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      padding: clamp(28px, 4vw, 58px);
+    }
+
+    header, footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      animation: enter .9s ease both;
+    }
+
+    .label {
+      display: grid;
+      gap: 9px;
+    }
+
+    .label small {
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .34em;
+      text-transform: uppercase;
+    }
+
+    .label strong {
+      font-size: clamp(17px, 1.5vw, 22px);
+      font-weight: 500;
+      letter-spacing: -.02em;
+    }
+
+    footer {
+      align-items: flex-end;
+      animation-delay: .15s;
+    }
+
+    footer .label:last-child {
+      text-align: right;
+    }
+
+    .hero {
+      display: grid;
+      place-items: center;
+      text-align: center;
+      animation: enter 1.1s .12s ease both;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(48px, 10vw, 170px);
+      font-weight: 800;
+      line-height: .78;
+      letter-spacing: -.065em;
+      text-transform: uppercase;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(245, 243, 234, .2);
+      text-shadow: 0 18px 80px rgba(0, 0, 0, .28);
+    }
+
+    h1 span {
+      display: block;
+      margin-top: .2em;
+      color: var(--yellow);
+      font-size: .18em;
+      line-height: 1;
+      letter-spacing: .42em;
+      -webkit-text-stroke: 0;
+      text-shadow: 0 0 34px rgba(233, 204, 50, .16);
+      transform: translateX(.21em);
+    }
+
+    .start {
+      position: fixed;
+      left: 50%;
+      bottom: clamp(58px, 8vh, 94px);
+      z-index: 5;
+      width: min(330px, calc(100vw - 48px));
+      height: 64px;
+      transform: translateX(-50%);
+      display: grid;
+      grid-template-columns: 1fr 24px;
+      align-items: center;
+      gap: 14px;
+      padding: 0 24px 0 34px;
+      border: 1px solid rgba(233, 204, 50, .68);
+      border-radius: 50px;
+      color: var(--ink);
+      background: rgba(23, 24, 27, .88);
+      box-shadow: 0 18px 55px rgba(0, 0, 0, .4);
+      backdrop-filter: blur(14px);
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 700;
+      transition: transform .3s ease, box-shadow .3s ease, background .3s ease;
+    }
+
+    .start span:last-child {
+      font-size: 24px;
+      justify-self: end;
+      transition: transform .3s ease;
+    }
+
+    .start:hover {
+      transform: translateX(-50%) translateY(-4px);
+      box-shadow: 0 24px 70px rgba(233, 204, 50, .13);
+      background: rgba(28, 29, 32, .96);
+    }
+
+    .start:hover span:last-child {
+      transform: translateX(4px);
+    }
+
+    @keyframes enter {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    @keyframes buttonEnter {
+      from { opacity: 0; transform: translate(-50%, 24px); }
+      to { opacity: 1; transform: translate(-50%, 0); }
+    }
+
+    @media (max-width: 640px) {
+      main {
+        padding: 24px;
+        min-height: 420px;
+      }
+
+      body::before {
+        background-size: 48px 48px;
+      }
+
+      h1 {
+        font-size: 12vw;
+        line-height: .9;
+      }
+
+      .start {
+        bottom: 45px;
+        height: 68px;
+        padding-left: 30px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="glow"></div>
+  <main>
+    <header>
+      <div class="label">
+        <small>Name</small>
+        <strong>Pankaj Kumar</strong>
+      </div>
+    </header>
+
+    <section class="hero">
+      <h1>PANKAJ KUMAR<span>Creative Developer</span></h1>
+    </section>
+
+    <footer>
+      <div></div>
+      <div class="label">
+        <small>Role</small>
+        <strong>Creative Developer</strong>
+      </div>
+    </footer>
+  </main>
+
+  <a class="start" href="Home.html">
+    <span>Get Started</span>
+    <span aria-hidden="true">&#8594;</span>
+  </a>
+</body>
+</html>
